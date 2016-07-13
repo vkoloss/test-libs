@@ -7,6 +7,19 @@ public class Entity {
     private Entity parent;
     private Status status;
 
+    public Entity getInstance() {
+        return this;
+    }
+
+    public Entity getInstanceUppercase() {
+        Entity newE = new Entity();
+        newE.id = id;
+        newE.name = name.toUpperCase();
+        newE.parent = parent;
+        newE.status = status;
+        return newE;
+    }
+
     @Override
     public String toString() {
         return "Entity{" +

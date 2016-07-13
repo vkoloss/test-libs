@@ -9,6 +9,15 @@ class GroovyTest {
     def service = new Service();
 
     @Test
+    public void shouldReturnNewUppercaseInstance() {
+        // setup
+        Entity e1 = new Entity(name: 'first')
+
+        // stimulus & assert
+        assert e1.instance.instanceUppercase.name == "First"
+    }
+
+    @Test
     void shouldReturnAllHavingChild() {
         // setup
         Entity e1 = new Entity(id: 1, name: 'first', status: ACTIVE);

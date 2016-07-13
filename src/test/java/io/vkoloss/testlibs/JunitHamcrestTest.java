@@ -2,17 +2,30 @@ package io.vkoloss.testlibs;
 
 import static io.vkoloss.testlibs.Entity.Status.ACTIVE;
 import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
+import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
 import java.util.Arrays;
 import java.util.List;
 
+import org.assertj.core.api.Assertions;
+import org.hamcrest.core.Is;
 import org.junit.Test;
 import org.mockito.Mockito;
 
 public class JunitHamcrestTest {
 
     Service service = new Service();
+
+    @Test
+    public void shouldReturnNewUppercaseInstance() {
+        // setup
+        Entity e1 = new Entity();
+        e1.setName("first");
+
+        // stimulus & assert
+        assertThat(e1.getInstance().getInstanceUppercase().getName(), is("First"));
+    }
 
     @Test
     public void shouldReturnAllHavingChild() {

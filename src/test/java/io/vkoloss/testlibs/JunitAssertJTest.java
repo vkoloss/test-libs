@@ -14,6 +14,16 @@ public class JunitAssertJTest {
     Service service = new Service();
 
     @Test
+    public void shouldReturnNewUppercaseInstance() {
+        // setup
+        Entity e1 = new Entity();
+        e1.setName("first");
+
+        // stimulus & assert
+        assertThat(e1.getInstance().getInstanceUppercase().getName()).isEqualTo("First");
+    }
+
+    @Test
     public void shouldReturnAllHavingChild() {
         // setup
         Entity e1 = new Entity();
